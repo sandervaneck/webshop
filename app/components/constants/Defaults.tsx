@@ -92,40 +92,40 @@ export const EulaPolicy = () => {
         <>
         <b>Published on: 01/01/2024</b><br/>
         <br/>
-        <b>Equismate End User License Agreement (EULA)</b><br/>
+        <b>{brand} End User License Agreement (EULA)</b><br/>
 
-This End User License Agreement ("Agreement") is a legal agreement between you ("User" or "You") and Equismate ("Company" or "We") for the use of Equismate services and products.<br/>
+This End User License Agreement is a legal agreement between you and {brand}/We/Company  for the use of {brand} services and products.<br/>
 <br/>
-By accessing or using Equismate services and products, you agree to be bound by the terms and conditions of this Agreement. If you do not agree to the terms of this Agreement, do not use Equismate services and products.
+By accessing or using {brand} services and products, you agree to be bound by the terms and conditions of this Agreement. If you do not agree to the terms of this Agreement, do not use {brand} services and products.
 <br/>
 <b>1. License Grant</b><br/>
-Subject to the terms and conditions of this Agreement, Equismate grants you a non-exclusive, non-transferable, limited license to use Equismate services and products for your personal, non-commercial use.
+Subject to the terms and conditions of this Agreement, {brand} grants you a non-exclusive, non-transferable, limited license to use {brand} services and products for your personal, non-commercial use.
 <br/>
 <b>2. Restrictions</b><br/>
 You may not:
 <br/>
-Modify, adapt, translate, reverse engineer, decompile, or disassemble Equismate services and products.
-Use Equismate services and products for any illegal or unauthorized purpose.
-Remove any copyright, trademark, or other proprietary rights notices from Equismate services and products.
+Modify, adapt, translate, reverse engineer, decompile, or disassemble {brand} services and products.
+Use {brand} services and products for any illegal or unauthorized purpose.
+Remove any copyright, trademark, or other proprietary rights notices from {brand} services and products.
 Share your account credentials with third parties.
 <br/>
 <b>3. Intellectual Property Rights</b><br/>
-Equismate retains all intellectual property rights in and to its services and products. This Agreement does not grant you any rights to use Equismate trademarks, logos, or other brand elements.
+{brand} retains all intellectual property rights in and to its services and products. This Agreement does not grant you any rights to use {brand} trademarks, logos, or other brand elements.
 <br/>
 <b>4. Termination</b><br/>
-This Agreement is effective until terminated. Equismate may terminate this Agreement at any time without notice if you breach any of its terms. Upon termination, you must cease all use of Equismate services and products.
+This Agreement is effective until terminated. {brand} may terminate this Agreement at any time without notice if you breach any of its terms. Upon termination, you must cease all use of {brand} services and products.
 <br/>
 <b>5. Disclaimer of Warranties</b><br/>
-Equismate services and products are provided "as is" and "as available" without warranties of any kind, express or implied. We do not warrant that Equismate services and products will be uninterrupted or error-free.
+{brand} services and products are provided as is and as available without warranties of any kind, express or implied. We do not warrant that {brand} services and products will be uninterrupted or error-free.
 <br/>
 <b>6. Limitation of Liability</b><br/>
-In no event shall Equismate be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or goodwill, arising out of or in connection with this Agreement or the use of Equismate services and products.
+In no event shall {brand} be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or goodwill, arising out of or in connection with this Agreement or the use of {brand} services and products.
 <br/>
 <b>7. Governing Law</b><br/>
 This Agreement shall be governed by and construed in accordance with the laws of [Your Country], without regard to its conflict of law principles.
 <br/>
 <b>8. Changes to this Agreement</b><br/>
-Equismate reserves the right to modify or update this Agreement at any time. You are responsible for reviewing this Agreement periodically for changes. Your continued use of Equismate services and products after the posting of any changes to this Agreement constitutes acceptance of those changes.
+{brand} reserves the right to modify or update this Agreement at any time. You are responsible for reviewing this Agreement periodically for changes. Your continued use of {brand} services and products after the posting of any changes to this Agreement constitutes acceptance of those changes.
         Please carefully review our Shipping & Delivery Policy<br/>
         <br/> 
         If you have any questions concerning our return policy, please contact us at:<br/>
@@ -149,7 +149,7 @@ export const CopyRight = () => {
 
     return (
         <>
-        {brand} respects the intellectual property rights of others. If you believe that your copyrighted work has been infringed on our website, please contact us at copyright@equismate.com with the following information:
+        {brand} respects the intellectual property rights of others. If you believe that your copyrighted work has been infringed on our website, please contact us at copyright@{brand}.com with the following information:
         <br/>
 Your contact information.        <br/>
 
