@@ -1,19 +1,29 @@
 "use client";
 
 import React, { useState } from "react";
-import { Badge } from "@mui/material";
+import { Badge, Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import ProductStore from "./components/Store";
-import { emptyCart } from "../components/constants/Defaults";
+import { CookiesPolicy, CopyRight, EulaPolicy, PrivacyPolicy, ReturnPolicy, ShippingPolicy, emptyCart } from "../components/constants/Defaults";
 import { CartPage } from "./components/cart/Page";
 import { numberOfItems } from "./components/cart/functions";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
 import AppBarContainer from "../components/appBar";
+import { TiSocialInstagramCircular } from "react-icons/ti";
+import { instagramLink } from "../components/constants/Legal";
 
 export default function Store(): JSX.Element {
   const [cart, setCart] = useState(emptyCart);
   const [openCart, setOpenCart] = useState(false);
   const [number, setNumber] = useState(numberOfItems(cart));
+
+  const [openReturnPolicy, setReturnPolicy] = useState(false)
+  const [openShipping, setShipping] = useState(false)
+  const [openCookies, setCookies] = useState(true)
+  const [openEula, setEula] = useState(false)
+  const [openCopyRight, setCopyRight] = useState(false)
+  const [openPrivacy, setPrivacy] = useState(false)
+
   return (
     <>
       <AppBarContainer
@@ -100,8 +110,109 @@ export default function Store(): JSX.Element {
             </Link>
           </div>
         </div>
-      </main>
-    </>
+        <div className="w-full h-px bg-zinc-800" />
 
-  );
+<div className="mb-12 md:mb-32 grid text-center lg:max-w-2xl w-full lg:mb-0 md:grid-cols-1 lg:text-left">
+<a
+    onClick={() => setReturnPolicy(true)}
+    className="underline"
+    rel="noopener noreferrer"
+    style={{ cursor: "pointer" }} // Add this style
+    >
+    <h2 className={`mb-1 text-2sm font-semibold`}>
+      Shipping Policy{" "}              
+    </h2>
+  </a>
+  <a
+    onClick={() => setReturnPolicy(true)}
+    className="underline"
+    rel="noopener noreferrer"
+    style={{ cursor: "pointer" }} // Add this style
+  >
+    <h2 className={`mb-1 text-2sm font-semibold`}>
+      Return Policy{" "}              
+    </h2>
+  </a>
+  <a
+    onClick={() => setCopyRight(true)}
+    className="underline"
+    rel="noopener noreferrer"
+    style={{ cursor: "pointer" }} // Add this style
+    >
+    <h2 className={`mb-1 text-2sm font-semibold`}>
+      Copyright{" "}              
+    </h2>
+  </a>
+  <a
+    onClick={() => setEula(true)}
+    className="underline"
+    rel="noopener noreferrer"
+    style={{ cursor: "pointer" }} // Add this style
+    >
+    <h2 className={`mb-1 text-2sm font-semibold`}>
+      EULA{" "}              
+    </h2>
+  </a>
+  <a
+    onClick={() => setPrivacy(true)}
+    className="underline"
+    rel="noopener noreferrer"
+    style={{ cursor: "pointer" }} // Add this style
+    >
+    <h2 className={`mb-1 text-2sm font-semibold`}>
+      Privacy{" "}              
+    </h2>
+  </a>
+  <a
+    href="mailto:office@equismate.com"
+    className="underline"
+    rel="noopener noreferrer"
+  >
+    <h2 className={`mb-1 text-2sm font-semibold`}>
+      Contact{" "}              
+    </h2>
+  </a>
+  <a
+    href={instagramLink}
+    target="_blank"
+    className="underline"
+    rel="noopener noreferrer"
+  >
+    <TiSocialInstagramCircular size={20} />
+  </a>
+</div>
+<Dialog open={openReturnPolicy} onClose={() => setReturnPolicy(false)}>
+  <DialogTitle>Return Policy</DialogTitle>
+  <DialogContent><ReturnPolicy/></DialogContent>
+  <DialogActions><Button variant="outlined" onClick={() => setReturnPolicy(false)}>Agree & Close</Button></DialogActions>
+  </Dialog>
+<Dialog open={openShipping} onClose={() => setShipping(false)}>
+  <DialogTitle>Shipping Policy</DialogTitle>
+  <DialogContent><ShippingPolicy/></DialogContent>
+  <DialogActions><Button variant="outlined" onClick={() => setShipping(false)}>Agree & Close</Button></DialogActions>
+  </Dialog>
+<Dialog open={openEula} onClose={() => setEula(false)}>
+  <DialogTitle>EULA Policy</DialogTitle>
+  <DialogContent><EulaPolicy/></DialogContent>
+  <DialogActions><Button variant="outlined" onClick={() => setEula(false)}>Agree & Close</Button></DialogActions>
+  </Dialog>
+<Dialog open={openPrivacy} onClose={() => setPrivacy(false)}>
+  <DialogTitle>Privacy Policy</DialogTitle>
+  <DialogContent><PrivacyPolicy/></DialogContent>
+  <DialogActions><Button variant="outlined" onClick={() => setPrivacy(false)}>Agree & Close</Button></DialogActions>
+  </Dialog>
+<Dialog open={openCopyRight} onClose={() => setCopyRight(false)}>
+  <DialogTitle>Copyrights</DialogTitle>
+  <DialogContent><CopyRight/></DialogContent>
+  <DialogActions><Button variant="outlined" onClick={() => setCopyRight(false)}>Agree & Close</Button></DialogActions>
+  </Dialog>
+<Dialog open={openCookies} onClose={() => setCookies(false)}>
+  <DialogTitle>Cookies</DialogTitle>
+  <DialogContent><CookiesPolicy/></DialogContent>
+  <DialogActions><Button variant="outlined" onClick={() => setCookies(false)}>Agree & Close</Button></DialogActions>
+  </Dialog>
+</main>
+</>
+
+);
 }
