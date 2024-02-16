@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Ecommerce Template Integrated with Stripe.
 
-## Getting Started
+This is a full-stack TypeScript ecommerce template using:
 
-First, run the development server:
+Frontend:
+Next.js
+[react-stripe-js](https://github.com/stripe/react-stripe-js) for [Checkout](https://stripe.com/checkout)
+Backend
+Next.js [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) and [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations)
+[stripe-node with TypeScript](https://github.com/stripe/stripe-node#usage-with-typescript)
+
+## Demo
+
+* [Live Demo](https://webshop-zeta-two.vercel.app/)
+
+The demo is running in test mode -- use 4242424242424242 as a test card number with any CVC + future expiration date.
+
+Use the 4000002760003184 test card number to trigger a 3D Secure challenge flow.
+
+Read more about testing on Stripe.
+
+## Functionality
+
+* Stripe Checkout
+  * Server Component: [app/store/components/cart/Page.tsx](path/to/Page.tsx)
+  * Server Action: [app/actions/stripe.ts](path/to/stripe.ts)
+  * Checkout Session 'success' page fetches the Checkout Session object from Stripe: [app/store/result/page.tsx](path/to/page.tsx)
+* Webhook handling for post-payment events
+Route Handler: [app/api/webhooks/route.ts](path/to/route.ts)
+
+
+## Manual
+
+1. Fork the project or open with your Github Desktop
+2. Copy the `.env.local.example` file into a file named `.env.local` in the root directory of this project:
 
 ```bash
+cp .env.local.example .env.local
+```
+You will need a Stripe account ([register](https://dashboard.stripe.com/register)) to run this sample. Go to the [Stripe developer dashboard](https://dashboard.stripe.com/apikeys) to find your API keys and replace them in the .env.local file.
+
+```bash
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=<replace-with-your-publishable-key>
+STRIPE_SECRET_KEY=<replace-with-your-secret-key>
+```
+3. Now install the dependencies
+
+```bash
+npm install
 npm run dev
 # or
+yarn
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Forward webhooks to your local dev server
+First install the [CLI](https://stripe.com/docs/stripe-cli) and [link your Stripe account](https://stripe.com/docs/stripe-cli#link-account).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Next, start the webhook forwarding:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+stripe listen --forward-to localhost:3000/api/webhooks
+```
+The CLI will print a webhook secret key to the console. Set `STRIPE_WEBHOOK_SECRET` to this value in your .`env.local` file.
