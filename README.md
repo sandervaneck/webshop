@@ -68,7 +68,7 @@ The CLI will print a webhook secret key to the console. Set `STRIPE_WEBHOOK_SECR
 ## Adjust it to your Store
 
 5.1 Edit the products in [app/components/constants/Products.tsx](path/to/Products.tsx) to your ones
-5.2 Update the images in [app/public](path/to/public) to your images.
+5.2 Update the images in [app/public](path/to/public) to your images and update the [app/favoicon.icon](path/to/favoicon.ico) to your website logo
 5.3 Update the company info in [app/store/components/constants/Legal.tsx](path/to/Legal.tsx) to your company info
 5.4 Update the text for the about section in [app/store/components/constants/Texts.tsx](path/to/Texts.tsx) to your company info
 5.5 Update the function in [app/components/store/products/ItemList.tsx](path/to/ItemList.tsx) `const returnCategory = (category: string) => {}` to return the correct ones, given your categories
