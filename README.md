@@ -1,3 +1,5 @@
+## Repository behind the Youtube [Crash Course on creating a webshop in React with Stripe integration](https://www.youtube.com/watch?v=BRB5Qah502w)
+
 ## Ecommerce Template Integrated with Stripe.
 
 This is a full-stack TypeScript ecommerce template using:
@@ -11,7 +13,7 @@ Next.js [Route Handlers](https://nextjs.org/docs/app/building-your-application/r
 
 ## Demo
 
-* [Live Demo](https://webshop-zeta-two.vercel.app/)
+- [Live Demo](https://webshop-zeta-two.vercel.app/)
 
 The demo is running in test mode -- use 4242424242424242 as a test card number with any CVC + future expiration date.
 
@@ -21,13 +23,12 @@ Read more about testing on Stripe.
 
 ## Functionality
 
-* Stripe Checkout
-  * Server Component: [app/store/components/cart/Page.tsx](path/to/Page.tsx)
-  * Server Action: [app/actions/stripe.ts](path/to/stripe.ts)
-  * Checkout Session 'success' page fetches the Checkout Session object from Stripe: [app/store/result/page.tsx](path/to/page.tsx)
-* Webhook handling for post-payment events
-Route Handler: [app/api/webhooks/route.ts](path/to/route.ts)
-
+- Stripe Checkout
+  - Server Component: [app/store/components/cart/Page.tsx](path/to/Page.tsx)
+  - Server Action: [app/actions/stripe.ts](path/to/stripe.ts)
+  - Checkout Session 'success' page fetches the Checkout Session object from Stripe: [app/store/result/page.tsx](path/to/page.tsx)
+- Webhook handling for post-payment events
+  Route Handler: [app/api/webhooks/route.ts](path/to/route.ts)
 
 ## Manual
 
@@ -37,12 +38,14 @@ Route Handler: [app/api/webhooks/route.ts](path/to/route.ts)
 ```bash
 cp .env.local.example .env.local
 ```
+
 You will need a Stripe account ([register](https://dashboard.stripe.com/register)) to run this sample. Go to the [Stripe developer dashboard](https://dashboard.stripe.com/apikeys) to find your API keys and replace them in the .env.local file.
 
 ```bash
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=<replace-with-your-publishable-key>
 STRIPE_SECRET_KEY=<replace-with-your-secret-key>
 ```
+
 3. Now install the dependencies
 
 ```bash
@@ -54,13 +57,14 @@ yarn dev
 ```
 
 4. Forward webhooks to your local dev server
-First install the [CLI](https://stripe.com/docs/stripe-cli) and [link your Stripe account](https://stripe.com/docs/stripe-cli#link-account).
+   First install the [CLI](https://stripe.com/docs/stripe-cli) and [link your Stripe account](https://stripe.com/docs/stripe-cli#link-account).
 
 Next, start the webhook forwarding:
 
 ```bash
 stripe listen --forward-to localhost:3000/api/webhooks
 ```
+
 The CLI will print a webhook secret key to the console. Set `STRIPE_WEBHOOK_SECRET` to this value in your .`env.local` file.
 
 5. Move to next step (Adjust it to your Store, see below)
@@ -72,4 +76,3 @@ The CLI will print a webhook secret key to the console. Set `STRIPE_WEBHOOK_SECR
 5.3 Update the company info in [app/store/components/constants/Legal.tsx](path/to/Legal.tsx) to your company info
 5.4 Update the text for the about section in [app/store/components/constants/Texts.tsx](path/to/Texts.tsx) to your company info
 5.5 Update the function in [app/components/store/products/ItemList.tsx](path/to/ItemList.tsx) `const returnCategory = (category: string) => {}` to return the correct ones, given your categories
-
